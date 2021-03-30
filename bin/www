@@ -7,6 +7,22 @@
 const app = require('../app');
 const debug = require('debug')('obstetrics-server:server');
 const http = require('http');
+const mongoose = require('mongoose');
+const {Schema} = mongoose;
+const dotenv = require('dotenv');
+/*
+* Connect to mongodb
+* */
+
+dotenv.config();
+mongoose.connect(process.env.DB_CONNECT,
+    {useNewUrlParser: true, useUnifiedTopology: true})
+    .then(
+        msg =>{
+        }, error =>{
+          console.log(error)
+        });
+
 
 /**
  * Get port from environment and store in Express.
