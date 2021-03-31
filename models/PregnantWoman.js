@@ -64,7 +64,9 @@ const pregnantWomanSchema = new mongoose.Schema({
     pregnancyInvestigation: [
         {type: mongoose.Schema.Types.ObjectId, ref: 'PregnancyInvestigation'}
     ],
-    // currentPregnancy: currentPregnancySchema
+    currentPregnancy: [
+        {type: mongoose.Schema.Types.ObjectId, ref: 'CurrentPregnancy'}
+    ]
 });
 
 module.exports.pregnantWomanSchema = pregnantWomanSchema;

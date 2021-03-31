@@ -6,7 +6,9 @@ const maternalMedicalHistorySchema = new mongoose.Schema({
     heartDisease: Boolean,
     sickle_cell: Boolean,
     allergies: String,
-    pregnantWoman: pregnantWomanSchema
+    pregnantWoman: [
+        {type: mongoose.Schema.Types.ObjectId, ref: 'PregnantWoman'}
+    ]
 });
 
 module.exports.maternalMedicalHistorySchema = maternalMedicalHistorySchema;

@@ -5,7 +5,9 @@ const pregnancyInvestigationSchema = new mongoose.Schema({
     investigationType: String,
     finding: String,
     dateOfInvestigation: Date,
-    // pregnantWoman: pregnantWomanSchema
+    pregnantWoman: [
+        {type: mongoose.Schema.Types.ObjectId, ref: 'PregnantWoman'}
+    ]
 });
 
 module.exports.pregnancyInvestigationSchema = pregnancyInvestigationSchema;

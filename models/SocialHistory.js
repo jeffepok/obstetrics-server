@@ -4,7 +4,9 @@ const mongoose = require('mongoose');
 const socialHistorySchema = new mongoose.Schema({
     alcohol: Boolean,
     smoking: Boolean,
-    // pregnantWoman: pregnantWomanSchema
+    pregnantWoman: [
+        {type: mongoose.Schema.Types.ObjectId, ref: 'PregnantWoman'}
+    ]
 });
 
 module.exports.socialHistorySchema = socialHistorySchema;

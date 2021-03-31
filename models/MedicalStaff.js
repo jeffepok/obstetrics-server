@@ -5,7 +5,9 @@ const medicalStaffSchema = new mongoose.Schema({
     name: String,
     type: String,
     phoneNumber: String,
-    // pregnantWoman: pregnantWomanSchema
+    pregnantWoman: [
+        {type: mongoose.Schema.Types.ObjectId, ref: 'PregnantWoman'}
+    ]
 });
 
 module.exports.medicalStaffSchema = medicalStaffSchema;

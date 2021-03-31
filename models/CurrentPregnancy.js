@@ -8,7 +8,9 @@ const currentPregnancySchema = new mongoose.Schema({
     firstHeight: Number,
     firstWeight: Number,
     contraceptionUsed: String,
-    pregnantWoman: pregnantWomanSchema
+    pregnantWoman: [
+        {type: mongoose.Schema.Types.ObjectId, ref: 'PregnantWoman'}
+    ]
 });
 
 module.exports.currentPregnancySchema = currentPregnancySchema;

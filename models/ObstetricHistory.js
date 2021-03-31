@@ -5,7 +5,9 @@ const obstetricHistorySchema = new mongoose.Schema({
     numberOfPregnancies: Number,
     numberOfBirths: Number,
     numberOfAbortions: Number,
-    // pregnantWoman: pregnantWomanSchema
+    pregnantWoman: [
+        {type: mongoose.Schema.Types.ObjectId, ref: 'PregnantWoman'}
+    ]
 });
 
 module.exports.obstetricHistorySchema = obstetricHistorySchema;

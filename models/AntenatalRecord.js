@@ -6,7 +6,9 @@ const antenatalRecordSchema = new mongoose.Schema({
     weight: Number,
     bloodPressure: Number,
     complaints: String,
-    pregnantWoman: pregnantWomanSchema
+    pregnantWoman: [
+        {type: mongoose.Schema.Types.ObjectId, ref: 'PregnantWoman'}
+    ]
 });
 
 module.exports.AntenatalRecord = mongoose.model('AntenatalRecord', antenatalRecordSchema);
