@@ -1,9 +1,10 @@
-const {pregnantWomanSchema} = require('./PregnantWoman');
+const mongoose = require('mongoose');
+// const {pregnantWomanSchema} = require('./PregnantWoman');
 
 const socialHistorySchema = new mongoose.Schema({
     alcohol: Boolean,
     smoking: Boolean,
-    pregnantWoman: pregnantWomanSchema
+    // pregnantWoman: pregnantWomanSchema
 });
 
 module.exports.socialHistorySchema = socialHistorySchema;

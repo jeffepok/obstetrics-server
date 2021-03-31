@@ -1,4 +1,5 @@
-const {pregnantWomanSchema} = require('./PregnantWoman');
+const mongoose = require('mongoose');
+// const {pregnantWomanSchema} = require('./PregnantWoman');
 
 const familyHistorySchema = new mongoose.Schema({
     hypertension: Boolean,
@@ -6,7 +7,7 @@ const familyHistorySchema = new mongoose.Schema({
     multiplePregnancy: Boolean,
     birthDefects: Boolean,
     mentalDisorder: Boolean,
-    pregnantWoman: pregnantWomanSchema
+    // pregnantWoman: pregnantWomanSchema
 });
 
 module.exports.familyHistorySchema = familyHistorySchema;

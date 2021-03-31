@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const {pregnantWomanSchema} = require('./PregnantWoman');
 
 const userSchema = new mongoose.Schema({
     email:{

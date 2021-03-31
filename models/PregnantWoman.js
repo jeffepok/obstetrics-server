@@ -1,9 +1,10 @@
-const {userSchema} = require('./User');
+const mongoose = require('mongoose');
+// const {userSchema} = require('./User');
 const {familyHistorySchema} = require('./FamilyHistory');
-const {maternalMedicalHistorySchema} = require('./MaternalMedicalHistory');
-const {pregnancyHistorySchema} = require('./pregnancyHistory');
+// const {maternalMedicalHistorySchema} = require('./MaternalMedicalHistory');
+// const {pregnancyHistorySchema} = require('./pregnancyHistory');
 const {medicalStaffSchema} = require('./MedicalStaff');
-const {currentPregnancySchema} = require('./CurrentPregnancy');
+// const {currentPregnancySchema} = require('./CurrentPregnancy');
 const {obstetricHistorySchema} = require('./ObstetricHistory');
 const {pregnancyInvestigationSchema} = require('./PregnancyInvestigation');
 const {socialHistorySchema} = require('./SocialHistory');
@@ -48,14 +49,14 @@ const pregnantWomanSchema = new mongoose.Schema({
     emergencyContact: String,
     emergencyTransportContact: String,
     medicalStaff: medicalStaffSchema,
-    pregnancyHistory: pregnancyHistorySchema,
-    user: userSchema,
-    maternalHistory: maternalMedicalHistorySchema,
+    // pregnancyHistory: pregnancyHistorySchema,
+    // user: userSchema,
+    // maternalHistory: maternalMedicalHistorySchema,
     socialHistory: socialHistorySchema,
     obstetricHistory: obstetricHistorySchema,
     familyHistory: familyHistorySchema,
     pregnancyInvestigation: pregnancyInvestigationSchema,
-    currentPregnancy: currentPregnancySchema
+    // currentPregnancy: currentPregnancySchema
 });
 
 module.exports.pregnantWomanSchema = pregnantWomanSchema;

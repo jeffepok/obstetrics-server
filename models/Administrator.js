@@ -1,4 +1,4 @@
-
+const mongoose = require('mongoose');
 const administratorSchema = new mongoose.Schema({
     firstName: String,
     surname: String,

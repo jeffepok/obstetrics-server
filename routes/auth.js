@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const {registeredValidation, loginValidation} = require('../validation')
 const bcrypt = require('bcryptjs')
 
+//Register Route
 router.post('/register', async (req, res) =>{
 
     //Lets validate the data before we make a user
@@ -16,18 +17,21 @@ router.post('/register', async (req, res) =>{
 
     // Hash passwords
     const salt = bcrypt.genSaltSync(10);
-    const hashedPassword = bcrypt.hashSync(req.body.password, salt);
-    //Create a new user
-    const user = new User({
-        email: req.body.email,
-        password: hashedPassword
+    bcrypt.hash(req.body.password, salt, (err, hashedPassword) =>{
+
+        //Create a new user
+        const user = new User({
+            email: req.body.email,
+            password: hashedPassword
+        });
+        const savedUser = user.save().then(
+            (value) =>{
+                res.send({user: user._id});
+                },
+            (err) => res.status(400).send(err));
     });
-    try{
-        const savedUser = await user.save();
-        res.send({user: user._id});
-    }catch(err){
-        res.status(400).send(err);
-    }
+
+
 });
 //login
 router.post('/login', async(req, res) =>{
@@ -38,7 +42,7 @@ router.post('/login', async(req, res) =>{
     //Checking if the user is already in the database
     const user = await User.findOne({email: req.body.email});
     if(!user) return res.status(400).send("Email doesn't exist");
-//    Password is correct
+//   Checking if Password is correct
     const validPass = await bcrypt.compare(req.body.password, user.password);
     if(!validPass) return res.status(400).send("Invalid password");
 

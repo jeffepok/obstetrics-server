@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const {pregnantWomanSchema} = require('./PregnantWoman');
 
 const hIVHBRoutineRecordSchema = new mongoose.Schema({
