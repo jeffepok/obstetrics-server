@@ -52,10 +52,18 @@ const pregnantWomanSchema = new mongoose.Schema({
     // pregnancyHistory: pregnancyHistorySchema,
     // user: userSchema,
     // maternalHistory: maternalMedicalHistorySchema,
-    socialHistory: socialHistorySchema,
-    obstetricHistory: obstetricHistorySchema,
-    familyHistory: familyHistorySchema,
-    pregnancyInvestigation: pregnancyInvestigationSchema,
+    socialHistory: [
+        {type: mongoose.Schema.Types.ObjectId, ref: 'SocialHistory'}
+    ],
+    obstetricHistory: [
+        {type: mongoose.Schema.Types.ObjectId, ref: 'ObstetricHistory'}
+    ],
+    familyHistory: [
+        {type: mongoose.Schema.Types.ObjectId, ref: 'FamilyHistory'}
+    ],
+    pregnancyInvestigation: [
+        {type: mongoose.Schema.Types.ObjectId, ref: 'PregnancyInvestigation'}
+    ],
     // currentPregnancy: currentPregnancySchema
 });
 

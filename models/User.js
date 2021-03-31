@@ -18,7 +18,9 @@ const userSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
-    pregnantWoman: pregnantWomanSchema
+    pregnantWoman: [
+        {type: mongoose.Schema.Types.ObjectId, ref: 'PregnantWoman'}
+        ]
 })
 
 module.exports.User = mongoose.model('User', userSchema);

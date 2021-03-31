@@ -3,9 +3,9 @@ const verify = require('./verifyToken');
 const {User} = require('../models/User');;
 const {PregnantWoman} = require('../models/PregnantWoman');
 
-router.post('/', verify, (req, res) =>{
+router.post('/', verify, (req, res) => {
 
-    const pregnantWoman = new PregnantWoman({
+    let pregnantWoman = {
         surname: req.body.surname,
         firstName: req.body.firstName,
         address: req.body.address,
@@ -20,40 +20,30 @@ router.post('/', verify, (req, res) =>{
         emergencyName: req.body.emergencyName,
         emergencyContact: req.body.emergencyContact,
         emergencyTransportContact: req.body.emergencyTransportContact
-    });
-    User.findById(req.user._id, (err, user) =>{
+    };
+    User.findById(req.user._id).then(user => {
         //If the user doesnt have a pregnant woman field
-        if(!user.pregnantWoman){
+        if (!user.pregnantWoman) {
             //save the document
-            pregnantWoman.save().then(
-                (onSuccess)=>{
-                    console.log(onSuccess)
-                },
-                (onError) =>{
-                    console.log(onError)})
-            user.pregnantWoman = pregnantWoman;
-            user.save();
-            res.send("Saved p woman");
+            pregnantWoman = new PregnantWoman(pregnantWoman);
+            pregnantWoman.save().then((onSuccess) => {
+                    user.pregnantWoman = pregnantWoman;
+                    console.log(onSuccess);
+                    user.save();
+                    res.send("Saved!");
+                }
+            );
+        }else{
+            PregnantWoman.findById(user.pregnantWoman._id)
+                .then(value => {Object.keys(pregnantWoman).forEach((key)=>{
+                    value[key] = pregnantWoman[key];
+                    value.save().then(saveData => {
+                        console.log(saveData);
+                        res.send("Changes made");
+                    })
+                })})
         }
-        else{
-            //if the user has, update the fields
-            user.pregnantWoman = pregnantWoman;
-            console.log(user)
-            user.save((err, value) =>{
-                res.send("Updated pregnant woman fields");
-            });
-
-            User.findById(req.user._id,(err, user) =>{
-                console.log("==============printing user from database===========" + req.user._id)
-                console.log(user);
-            });
-
-
-        }
-
-    })
-
-
+    });
 });
 
 // router.get('/', verify, (req, res) =>{
