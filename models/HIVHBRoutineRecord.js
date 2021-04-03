@@ -5,9 +5,8 @@ const hIVHBRoutineRecordSchema = new mongoose.Schema({
     date: Date,
     testInterval: Number,
     results: String,
-    pregnantWoman: [
-        {type: mongoose.Schema.Types.ObjectId, ref: 'PregnantWoman'}
-    ]
+    pregnantWoman: {type: mongoose.Schema.Types.ObjectId, ref: 'PregnantWoman'}
+
 });
 
 module.exports.HIVHBRoutineRecord = mongoose.model('HIVHBRoutineRecord', hIVHBRoutineRecordSchema);

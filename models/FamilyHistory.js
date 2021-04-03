@@ -7,9 +7,7 @@ const familyHistorySchema = new mongoose.Schema({
     multiplePregnancy: Boolean,
     birthDefects: Boolean,
     mentalDisorder: Boolean,
-    pregnantWoman: [
-        {type: mongoose.Schema.Types.ObjectId, ref: 'PregnantWoman'}
-    ]
+    pregnantWoman: {type: mongoose.Schema.Types.ObjectId, ref: 'PregnantWoman'}
 });
 
 module.exports.familyHistorySchema = familyHistorySchema;

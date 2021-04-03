@@ -48,25 +48,21 @@ const pregnantWomanSchema = new mongoose.Schema({
     emergencyName: String,
     emergencyContact: String,
     emergencyTransportContact: String,
-    medicalStaff: medicalStaffSchema,
-    // pregnancyHistory: pregnancyHistorySchema,
-    // user: userSchema,
-    // maternalHistory: maternalMedicalHistorySchema,
-    socialHistory: [
-        {type: mongoose.Schema.Types.ObjectId, ref: 'SocialHistory'}
+    hIVHBRoutineRecord: [
+        {type: mongoose.Schema.Types.ObjectId, ref: 'HIVHBRoutineRecord'}
+        ],
+    antenatalRecord: [
+        {type: mongoose.Schema.Types.ObjectId, ref: 'AntenatalRecord'},
     ],
-    obstetricHistory: [
-        {type: mongoose.Schema.Types.ObjectId, ref: 'ObstetricHistory'}
-    ],
-    familyHistory: [
-        {type: mongoose.Schema.Types.ObjectId, ref: 'FamilyHistory'}
-    ],
-    pregnancyInvestigation: [
-        {type: mongoose.Schema.Types.ObjectId, ref: 'PregnancyInvestigation'}
-    ],
-    currentPregnancy: [
-        {type: mongoose.Schema.Types.ObjectId, ref: 'CurrentPregnancy'}
-    ]
+    medicalStaff: {type: mongoose.Schema.Types.ObjectId, ref: 'MedicalStaff'},
+    pregnancyHistory: {type: mongoose.Schema.Types.ObjectId, ref: 'PregnancyHistory'},
+    user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+    maternalHistory: {type: mongoose.Schema.Types.ObjectId, ref: 'MaternalHistory'},
+    socialHistory: {type: mongoose.Schema.Types.ObjectId, ref: 'SocialHistory'},
+    obstetricHistory: {type: mongoose.Schema.Types.ObjectId, ref: 'ObstetricHistory'},
+    familyHistory: {type: mongoose.Schema.Types.ObjectId, ref: 'FamilyHistory'},
+    pregnancyInvestigation: {type: mongoose.Schema.Types.ObjectId, ref: 'PregnancyInvestigation'},
+    currentPregnancy: {type: mongoose.Schema.Types.ObjectId, ref: 'CurrentPregnancy'}
 });
 
 module.exports.pregnantWomanSchema = pregnantWomanSchema;

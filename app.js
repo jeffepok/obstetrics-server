@@ -7,8 +7,7 @@ const logger = require('morgan');
 const authRouter = require('./routes/auth')
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const postRouter = require('./routes/post');
-const biodataRouter = require('./routes/biodata');
+const pregnantWoman = require('./routes/pregnantWoman');
 
 const app = express();
 
@@ -23,7 +22,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api/user', authRouter);
-app.use('/api/posts', postRouter);
-app.use('/api/biodata', biodataRouter);
+app.use('/api/pregnantwoman', pregnantWoman);
 
 module.exports = app;

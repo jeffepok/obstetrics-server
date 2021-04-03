@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const {pregnantWomanSchema} = require('./PregnantWoman');
 
 const userSchema = new mongoose.Schema({
     email:{
@@ -18,9 +17,7 @@ const userSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
-    pregnantWoman: [
-        {type: mongoose.Schema.Types.ObjectId, ref: 'PregnantWoman'}
-        ]
+    pregnantWoman: {type: mongoose.Schema.Types.ObjectId, ref: 'PregnantWoman'}
 })
 
 module.exports.User = mongoose.model('User', userSchema);
