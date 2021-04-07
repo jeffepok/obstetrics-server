@@ -10,7 +10,6 @@ const usersRouter = require('./routes/users');
 const pregnantWoman = require('./routes/pregnantWoman');
 const adminRouter = require('./routes/adminPanel');
 const app = express();
-
 app.use(cors());
 app.use('/admin', adminRouter);
 

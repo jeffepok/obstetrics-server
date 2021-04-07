@@ -5,16 +5,25 @@ const AdminBroMongoose = require('@admin-bro/mongoose');
 const mongoose = require('mongoose');
 AdminBro.registerAdapter(AdminBroMongoose);
 const adminBro = new AdminBro({
+    version: {
+        admin: true,
+    },
     databases: [mongoose],
     rootPath: '/admin',
+    dashboard: {
+        handler: async () => {
+            return { some: 'output' }
+        },
+        component: AdminBro.bundle('../public/adminPanel/dashboard/my-dashboard-component')
+    },
     branding:{
         logo: false,
         companyName: 'Obstetrics Data Collection',
         softwareBrothers: false,
         theme: {
             colors: {
-                primary100: 'rgba(236, 72, 153)',
-                hoverBg: 'rgba(244, 114, 182)'
+                primary100: 'rgba(244, 114, 182)',
+                hoverBg: 'rgba(236, 72, 153)'
             }
         }
     },
@@ -42,7 +51,10 @@ const router = AdminBroExpress.buildAuthenticatedRouter(adminBro,{
             return ADMIN;
         }
         return null;
-    }
+    },
+}, null, {
+    resave: false,
+    saveUninitialized: true,
 });
 
 module.exports = router;
