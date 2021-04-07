@@ -8,7 +8,6 @@ const app = require('../app');
 const debug = require('debug')('obstetrics-server:server');
 const http = require('http');
 const mongoose = require('mongoose');
-const {Schema} = mongoose;
 const dotenv = require('dotenv');
 /*
 * Connect to mongodb
@@ -19,6 +18,7 @@ mongoose.connect(process.env.DB_CONNECT,
     {useNewUrlParser: true, useUnifiedTopology: true})
     .then(
         msg =>{
+          console.log('Connected to db');
         }, error =>{
           console.log(error)
         });
