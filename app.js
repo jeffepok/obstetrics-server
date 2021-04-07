@@ -5,10 +5,10 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 const authRouter = require('./routes/auth')
-const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const pregnantWoman = require('./routes/pregnantWoman');
 const adminRouter = require('./routes/adminPanel');
+const adminLogin = require('./routes/adminLogin');
 const app = express();
 app.use(cors());
 app.use('/admin', adminRouter);
@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
-app.use('/', indexRouter);
+app.use('/', adminLogin);
 app.use('/users', usersRouter);
 app.use('/api/user', authRouter);
 app.use('/api/pregnantwoman', pregnantWoman);

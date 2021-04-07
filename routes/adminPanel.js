@@ -9,6 +9,7 @@ const adminBro = new AdminBro({
         admin: true,
     },
     databases: [mongoose],
+    loginPath: 'http://localhost:4200/landing/login',
     rootPath: '/admin',
     dashboard: {
         handler: async () => {
@@ -24,17 +25,6 @@ const adminBro = new AdminBro({
             colors: {
                 primary100: 'rgba(244, 114, 182)',
                 hoverBg: 'rgba(236, 72, 153)'
-            }
-        }
-    },
-    locale: {
-        language: 'en',
-        translations: {
-            messages:{
-                welcomeOnBoard_title: 'Welcome Admin',
-                welcomeOnBoard_subtitleL: 'This is obstetrics data collection data base admin panel',
-                loginWelcome: 'To Obstetrics Data Collection database'
-
             }
         }
     }
