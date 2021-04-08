@@ -1,6 +1,6 @@
 
 module.exports = {
     login: (req, res, next) =>{
-        res.render('login', { title: 'Admin Panel' });
+        res.render('index', { title: 'Admin Panel' });
     }
 }
