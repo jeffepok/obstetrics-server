@@ -57,7 +57,7 @@ const pregnantWomanSchema = new mongoose.Schema({
     medicalStaff: {type: mongoose.Schema.Types.ObjectId, ref: 'MedicalStaff'},
     pregnancyHistory: {type: mongoose.Schema.Types.ObjectId, ref: 'PregnancyHistory'},
     user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-    maternalHistory: {type: mongoose.Schema.Types.ObjectId, ref: 'MaternalHistory'},
+    maternalHistory: {type: mongoose.Schema.Types.ObjectId, ref: 'MaternalMedicalHistory'},
     socialHistory: {type: mongoose.Schema.Types.ObjectId, ref: 'SocialHistory'},
     obstetricHistory: {type: mongoose.Schema.Types.ObjectId, ref: 'ObstetricHistory'},
     familyHistory: {type: mongoose.Schema.Types.ObjectId, ref: 'FamilyHistory'},

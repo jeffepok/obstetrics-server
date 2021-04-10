@@ -9,7 +9,6 @@ const adminBro = new AdminBro({
         admin: true,
     },
     databases: [mongoose],
-    loginPath: 'http://localhost:4200/landing/login',
     rootPath: '/admin',
     dashboard: {
         handler: async () => {
