@@ -1,13 +1,5 @@
 const mongoose = require('mongoose');
-// const {userSchema} = require('./User');
-const {familyHistorySchema} = require('./FamilyHistory');
-// const {maternalMedicalHistorySchema} = require('./MaternalMedicalHistory');
-// const {pregnancyHistorySchema} = require('./pregnancyHistory');
-const {medicalStaffSchema} = require('./MedicalStaff');
-// const {currentPregnancySchema} = require('./CurrentPregnancy');
-const {obstetricHistorySchema} = require('./ObstetricHistory');
-const {pregnancyInvestigationSchema} = require('./PregnancyInvestigation');
-const {socialHistorySchema} = require('./SocialHistory');
+
 
 const pregnantWomanSchema = new mongoose.Schema({
     surname:{
