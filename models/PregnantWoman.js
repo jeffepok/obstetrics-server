@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-
 const pregnantWomanSchema = new mongoose.Schema({
     surname:{
         type: String,
